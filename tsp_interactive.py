@@ -12,6 +12,8 @@ class City:
     y: float
     name: str
 
+count = 250
+
 class TSPVisualizer:
     def __init__(self, width=1400, height=800):
         pygame.init()
@@ -66,7 +68,7 @@ class TSPVisualizer:
         self.running = False
         self.optimization_step = 0
         
-    def generate_cities(self, num_cities=500):
+    def generate_cities(self, num_cities=count):
         """Generate random cities"""
         self.cities = []
         margin = 50
@@ -601,7 +603,7 @@ class TSPVisualizer:
     def run(self):
         """Main game loop"""
         clock = pygame.time.Clock()
-        self.generate_cities(500) # Start with 500 cities
+        self.generate_cities(count) # Start with count cities
         
         last_update = time.time()
         
@@ -614,7 +616,7 @@ class TSPVisualizer:
                         return
                     elif event.key == pygame.K_SPACE:
                         self.reset()
-                        self.generate_cities(500) # Re-generate cities on restart
+                        self.generate_cities(count) # Re-generate cities on restart
                         self.running = True
             
             # Clear screen
